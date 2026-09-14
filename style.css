@@ -1,3 +1,10 @@
+:root {
+    --wine: #69013b;
+    --beige: #fce0d1;
+    --white: #ffffff;
+    --black: #191919;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,21 +13,22 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--wine) 0%, var(--beige) 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #333;
+    color: var(--black);
+    overflow-x: hidden;
 }
 
 .game-container {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--white);
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     max-width: 800px;
-    width: 100%;
+    width: min(800px, calc(100vw - 40px));
 }
 
 .game-header {
@@ -31,7 +39,7 @@ body {
 .game-header h1 {
     font-size: 3rem;
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--wine);
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -45,11 +53,11 @@ body {
 }
 
 .score-item {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(135deg, var(--wine) 0%, var(--black) 100%);
     padding: 15px;
     border-radius: 10px;
     text-align: center;
-    color: white;
+    color: var(--white);
     font-weight: bold;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -78,9 +86,9 @@ body {
 }
 
 #gameCanvas {
-    border: 3px solid #2c3e50;
+    border: 3px solid var(--wine);
     border-radius: 10px;
-    background: #ecf0f1;
+    background: var(--beige);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
@@ -109,7 +117,7 @@ body {
 .overlay-content h2 {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: #e74c3c;
+    color: var(--beige);
 }
 
 .overlay-content p {
@@ -125,7 +133,7 @@ body {
 }
 
 .next-piece {
-    background: #f8f9fa;
+    background: var(--beige);
     padding: 20px;
     border-radius: 15px;
     text-align: center;
@@ -134,18 +142,18 @@ body {
 
 .next-piece h3 {
     margin-bottom: 15px;
-    color: #2c3e50;
+    color: var(--wine);
     font-size: 1.2rem;
 }
 
 #nextCanvas {
-    border: 2px solid #bdc3c7;
+    border: 2px solid var(--wine);
     border-radius: 8px;
-    background: white;
+    background: var(--white);
 }
 
 .controls {
-    background: #f8f9fa;
+    background: var(--beige);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -153,7 +161,7 @@ body {
 
 .controls h3 {
     margin-bottom: 15px;
-    color: #2c3e50;
+    color: var(--wine);
     font-size: 1.2rem;
     text-align: center;
 }
@@ -173,8 +181,8 @@ body {
 }
 
 .key {
-    background: #2c3e50;
-    color: white;
+    background: var(--black);
+    color: var(--white);
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 0.8rem;
@@ -206,8 +214,8 @@ body {
 }
 
 #startBtn {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--wine) 0%, var(--black) 100%);
+    color: var(--white);
 }
 
 #startBtn:hover {
@@ -216,8 +224,8 @@ body {
 }
 
 #pauseBtn {
-    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--wine) 0%, var(--beige) 100%);
+    color: var(--black);
 }
 
 #pauseBtn:hover:not(:disabled) {

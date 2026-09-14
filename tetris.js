@@ -120,6 +120,14 @@ class Tetris {
         
         // Keyboard events
         document.addEventListener('keydown', (e) => {
+            if (e.code === 'KeyP') {
+                e.preventDefault();
+                if (this.gameRunning) {
+                    this.togglePause();
+                }
+                return;
+            }
+
             if (!this.gameRunning || this.gamePaused) return;
             
             switch(e.code) {
@@ -142,10 +150,6 @@ class Tetris {
                 case 'Space':
                     e.preventDefault();
                     this.hardDrop();
-                    break;
-                case 'KeyP':
-                    e.preventDefault();
-                    this.togglePause();
                     break;
             }
         });
