@@ -253,8 +253,21 @@ class Tetris {
     }
     
     hardDrop() {
+        let cellsDropped = 0;
         while (this.movePiece(0, 1)) {
-            this.score += 2;
+            cellsDropped++;
+        }
+
+        this.score += cellsDropped * 2;
+        this.placePiece();
+        this.clearLines();
+        this.spawnNewPiece();
+
+        if (this.isGameOver()) {
+            this.endGame();
+        } else {
+            this.updateDisplay();
+            this.draw();
         }
     }
     
@@ -305,7 +318,6 @@ class Tetris {
             this.lines += linesCleared;
             this.level = Math.floor(this.lines / 10) + 1;
             
-            // Scoring: more points for clearing multiple lines at once
             const lineScores = [0, 100, 300, 500, 800];
             this.score += lineScores[linesCleared] * this.level;
             
@@ -439,6 +451,8 @@ class Tetris {
         document.getElementById('highScore').textContent = this.highScore;
     }
 }
+
+globalThis.Tetris = Tetris;
 
 // Initialize the game when the page loads
 document.addEventListener('DOMContentLoaded', () => {
